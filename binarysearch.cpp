@@ -45,7 +45,14 @@ int main(){
     cin>>key;
     
     // int value = binarysearch(arr,0 , n-1 , key);
+    //for binary search we need to sort the array first
 
+    sort(arr,arr+n);
+    cout<<"sorted array is"<<endl;
+    for(int i=0;i<n;i++){
+        cout<<arr[i]<<" ";
+    }cout<<endl;
+    
     if(binarysearch(arr,n,key)==-1){
         cout<<"element not found"<<endl;
     }
