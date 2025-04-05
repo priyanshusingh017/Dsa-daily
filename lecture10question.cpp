@@ -74,6 +74,26 @@ int findduplicate(int *arr , int n){
     
 }
 
+// Function to find pair sum in an array
+
+vector<vector<int>> pairSum( vector<int>&arr , int s){
+
+    vector<vector<int>> ans;
+    for(int i=0; i<arr.size(); i++){
+        for(int j=i+1; j<arr.size();j++){
+            if(arr[i]+arr[j]==s){
+                vector<int> pair;
+                pair.push_back(min(arr[i], arr[j]));
+                pair.push_back(max(arr[i], arr[j]));
+                ans.push_back(pair);
+            }
+                
+        }
+    }
+    sort(ans.begin(), ans.end());
+    return ans ; 
+}
+
      
 void printarray(int arr[] , int n){
     for(int i=0;i<n;i++){
@@ -115,6 +135,21 @@ int main(){
     vector<int> arr4={1,2,2,1,1,3};
     int n4=arr4.size();
     cout<<findunique1(arr4)<<endl;
+
+    //find pair sum in an array
+
+    vector<int> arr5={1,2,3,4,5,6};
+    int s=7;
+    vector<vector<int>> ans3=pairSum(arr5 , s);
+    cout<<"pair sum in an array is : "<<endl;
+    for(auto it : ans3){
+        cout<<it[0]<<" "<<it[1]<<endl;
+    }
+    cout<<endl;
+
+
+
+
 
     return 0;
 }
