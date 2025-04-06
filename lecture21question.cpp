@@ -127,6 +127,64 @@ void addarrays(vector<int>arr1 , vector<int>arr2){
 
 }
 
+vector<int> plusOne(vector<int>& digits) {
+
+    int n = digits.size();
+    for(int i = n-1 ; i>=0; i--){
+        if(digits[i]<9){
+            digits[i]++;
+            return digits;
+        }
+        digits[i]=0;
+    }
+    digits.insert(digits.begin() , 1);
+    return digits;
+    
+}
+
+// search the insert element in sorted array
+
+int searchInsert(vector<int>& nums, int target) {
+    int n = nums.size();
+    for(int i=0;i<n;i++){
+        if(nums[i]>=target){
+            return i;
+        }
+    }
+    return n;
+}
+
+// function to find missing number in an array
+
+int missingNumber(vector<int>& nums){
+    int n=nums.size();
+    int sum=(n*(n+1))/2;
+    int sum1=0;
+    for(int i=0;i<n;i++){
+        sum1+=nums[i];
+    }
+    
+    /* unordered_set<int> s(nums.begin(), nums.end());
+    for(int i=0;i<=n;i++){
+        if(s.find(i)==s.end()){
+            return i;
+        }
+    }
+    return -1;
+    */
+
+    return sum-sum1;
+
+}
+
+
+void printarray(vector<int>arr){
+    for(int i=0;i<arr.size();i++){
+        cout<<arr[i]<<" ";
+    }
+    cout<<endl;
+}
+
 
 
 int main(){
@@ -159,9 +217,31 @@ int main(){
     vector<int>arr2={6};
     addarrays(arr1 , arr2);
 
+    // Q4 . plus one - adding one to the number represented by the array
+
+    vector<int>digits={1,2,9};
+    vector<int>ans = plusOne(digits);
+
+    cout<<"adding one to the number represented by the array"<<endl;
+    printarray(ans);
+
+    cout<<endl;
+
+    // Q5 . search the insert element in sorted array
+
+    vector<int>nums1={1,3,5,6};
+    int target=7;
+    int ans1 = searchInsert(nums1 , target);
+    cout<<"search the insert element in sorted array"<<endl;
+    cout<<"insert position is : "<<ans1<<endl;
 
 
 
+    // Q6 . find missing number in an array
+
+    vector<int>nums2={9,6,4,2,3,5,7,0,1};
+    int ans2 = missingNumber(nums2);
+    cout<<ans2<<endl;
 
     return 0;
 }
