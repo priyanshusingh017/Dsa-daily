@@ -4,7 +4,30 @@
 
 using namespace std;
 
-// function to rotate an array by k times
+//function to rotate an array by k time or left rotation 
+
+
+void leftrotate(vector<int>arr , int k){
+
+    int n = arr.size();
+    vector<int>temp(n);
+
+    for(int i=0 ; i<n ; i++){
+        temp[(i-k+n)%n] = arr[i];
+    }
+
+    arr = temp;
+
+    //printing the rotated array
+    cout<<"left rotated array is : "<<endl;
+    for(int i=0;i<arr.size();i++){
+        cout<<arr[i]<<" ";
+    }
+    cout<<endl;
+
+}
+
+// function to rotate an array by k times /. right rotation
 
 void rotate(vector<int>nums , int k){
 
@@ -108,10 +131,18 @@ void addarrays(vector<int>arr1 , vector<int>arr2){
 
 int main(){
 
-    // Q1 . reverse an array
+    // Q1 . reverse an array // right rotate by k times 
+
     vector<int>nums={1,2,3,4,5,6,7};
     int k=3;
     rotate(nums , k);
+
+    // left rotate by k times
+
+    vector<int>arry={1,2,3,4,5};
+    int k1 = 2;
+    leftrotate(arry , k1);
+
 
     // Q2 . Sorted and rotated array
     vector<int>arr={3,4,5,1,2};
