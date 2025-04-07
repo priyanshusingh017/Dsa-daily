@@ -1,5 +1,28 @@
 #include<iostream>
+#include<vector>
+#include<algorithm>
 using namespace std;
+
+//188 - pascals triangle
+
+vector<vector<int>> generate(int numRows) {
+
+    vector<vector<int>> triangle;
+
+    for(int i = 0; i<numRows; i++ ){
+        vector<int> rows(i+1 , 1); // starts with 1's
+
+        for(int j=1 ; j<i ; j++){
+            rows[j]= triangle[i-1][j-1] + triangle[i-1][j]; 
+        }
+
+        triangle.push_back(rows);
+    }
+
+    return triangle ;
+    
+}
+
 int main(){
 
     //problem 1 
@@ -47,9 +70,23 @@ int main(){
    }
    cout<<answer;*/
 
-   int n=0;
-   while(n>=0){
-    cout<<n;
-    n++;
-   }
+    cout<<endl;
+
+    // pascals triangle
+
+    int numRows;
+    cout<<"enter the number of rows"<<endl;
+    cin>>numRows;
+    vector<vector<int>> ans = generate(numRows);
+    cout<<"pascals triangle is : "<<endl;
+
+    for (const auto& row : ans) {
+        for (int num : row) {
+            cout << num << " ";
+        }
+        cout << "\n";
+    }
+
+
+    return 0;
 }
