@@ -1,6 +1,8 @@
 #include<iostream>
 #include<vector>
 #include<algorithm>
+#include<unordered_map>
+
 using namespace std;
 
 //188 - pascals triangle
@@ -20,6 +22,25 @@ vector<vector<int>> generate(int numRows) {
     }
 
     return triangle ;
+    
+}
+
+// majority element
+
+int majorityElement(vector<int>& nums) {
+
+    unordered_map<int , int>freq;
+
+    for(auto num : nums){
+        freq[num]++;
+        
+        if(freq[num]> nums.size()/2){
+            return num;
+        }
+
+    }
+
+    return -1 ;  
     
 }
 
@@ -72,7 +93,7 @@ int main(){
 
     cout<<endl;
 
-    // pascals triangle
+    /* // pascals triangle
 
     int numRows;
     cout<<"enter the number of rows"<<endl;
@@ -86,6 +107,15 @@ int main(){
         }
         cout << "\n";
     }
+    
+    */
+
+    // majority element
+
+    vector<int> nums = {2,2,1,1,1,2,2};
+    int majority = majorityElement(nums);
+    cout << "Majority Element: " << majority << endl;
+
 
 
     return 0;
