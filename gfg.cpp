@@ -31,6 +31,27 @@ vector<int> findMajority(vector<int>& arr) {
     return ans;
 }
 
+
+//Stock Buy and Sell – Multiple Transaction Allowed
+
+
+int maximumProfit(vector<int> &prices) {
+    // code here
+    
+    int n = prices.size();
+    int profit = 0 ;
+    
+    for(int i =1 ; i<n ; i++){
+        
+        if(prices[i]>prices[i-1]){
+            
+            profit += prices[i] - prices[i-1];
+        }
+    }
+    
+    return profit ;
+}
+
 //printing the elements
 
 void printElements(const vector<int>& elements) {
@@ -44,12 +65,23 @@ void printElements(const vector<int>& elements) {
 int main(){
 
 
+    /*
+    //Finding Majority Elements
+    
     vector<int> arr = {2, 1, 5, 5, 5, 5, 6, 6, 6, 6, 6};
     
     vector<int> result = findMajority(arr);
     
     cout << "Majority Elements: ";
     printElements(result);
+
+    */
+
+    //Stock Buy and Sell
+    vector<int> prices = {1, 2, 3, 4, 5};
+    int maxProfit = maximumProfit(prices);
+    cout << "Maximum Profit: " << maxProfit << endl;
+    
 
 
     return 0;
