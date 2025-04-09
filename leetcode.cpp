@@ -44,6 +44,31 @@ int majorityElement(vector<int>& nums) {
     
 }
 
+// 121. Best Time to Buy and Sell Stock
+
+int maxProfit(vector<int>& prices) {
+
+    int n = prices.size();
+
+    int minprices = INT_MAX; 
+
+    int profit = 0 ;
+
+    for(int i = 0 ; i<n ; i++){
+
+        if(prices[i]<minprices){
+            minprices = prices[i];
+        }
+        else {
+            profit = max(profit , prices[i]-minprices);
+        }
+    }
+
+    return profit ; 
+
+    
+}
+
 int main(){
 
     //problem 1 
@@ -109,13 +134,21 @@ int main(){
     }
     
     */
-
-    // majority element
+   
+   /* // majority element
 
     vector<int> nums = {2,2,1,1,1,2,2};
     int majority = majorityElement(nums);
     cout << "Majority Element: " << majority << endl;
 
+    */ 
+
+    //  // 121. Best Time to Buy and Sell Stock - one transaction allowed
+
+    vector<int> prices = {7,1,5,3,6,4};
+    int max_profit = maxProfit(prices);
+    cout << "Maximum Profit: " << max_profit << endl;
+    
 
 
     return 0;
