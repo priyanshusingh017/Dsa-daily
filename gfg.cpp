@@ -73,6 +73,36 @@ void nextpalidrome(vector<int>& arr) {
 
 }
 
+// Minimum Difference - find the minimum difference between the maximum and minimum elements of the array after performing the operations
+
+int getMinDiff(vector<int> &arr, int k) {
+    
+    int n = arr.size();
+    
+    if ( n == 1 ) return 0 ;
+    
+    
+    sort(arr.begin() , arr.end());
+    
+    int diff = arr[n-1] - arr[0];
+    
+    int small , largest ;
+    
+    for(int i =0 ; i<n -1 ; i++){
+        
+        largest = max(arr[n-1]-k , arr[i]+k);
+        
+        small = min(arr[0]+ k , arr[i+1]-k);
+        
+        if( small < 0)  continue ;
+        
+        
+        diff = min(diff , largest - small);
+    }
+    
+    return diff ; 
+}
+
 //printing the elements
 
 void printElements(const vector<int>& elements) {
@@ -104,13 +134,22 @@ int main(){
     cout << "Maximum Profit: " << maxProfit << endl;
     */
 
-    // Next Palindrome
+    /*// Next Palindrome
 
     vector<int> arr = {2, 4, 1, 7, 5, 0};
     nextpalidrome(arr);
     cout << "Next Palindrome: ";
     printElements(arr);
 
+    */
+
+    // Minimum Difference
+
+    vector<int> arr = {1, 5, 15, 10};
+    int k = 3;
+    int minDiff = getMinDiff(arr, k);
+    cout << "Minimum Difference: " << minDiff << endl;
+    
 
 
     return 0;
