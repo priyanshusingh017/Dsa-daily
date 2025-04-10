@@ -52,6 +52,27 @@ int maximumProfit(vector<int> &prices) {
     return profit ;
 }
 
+// next palindrome - find the next palindrome number greater than the given number
+
+void nextpalidrome(vector<int>& arr) {
+    
+    int n = arr.size();
+    int i = n-2;
+    while(i>=0 && arr[i]>=arr[i+1]){
+        i--;
+    }
+    if(i>=0){
+        int j=n-1;
+        while(arr[i]>=arr[j]){
+            j--;
+        }
+        swap(arr[i], arr[j]);
+    }
+
+    reverse(arr.begin()+i+1, arr.end());
+
+}
+
 //printing the elements
 
 void printElements(const vector<int>& elements) {
@@ -77,11 +98,19 @@ int main(){
 
     */
 
-    //Stock Buy and Sell
+    /*//Stock Buy and Sell
     vector<int> prices = {1, 2, 3, 4, 5};
     int maxProfit = maximumProfit(prices);
     cout << "Maximum Profit: " << maxProfit << endl;
-    
+    */
+
+    // Next Palindrome
+
+    vector<int> arr = {2, 4, 1, 7, 5, 0};
+    nextpalidrome(arr);
+    cout << "Next Palindrome: ";
+    printElements(arr);
+
 
 
     return 0;
