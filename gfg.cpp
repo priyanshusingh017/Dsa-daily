@@ -145,11 +145,11 @@ int main(){
 
     // Minimum Difference
 
-    vector<int> arr = {1, 5, 15, 10};
-    int k = 3;
+    vector<int> arr = {1, 5, 8, 10};
+    int k = 2;
     int minDiff = getMinDiff(arr, k);
     cout << "Minimum Difference: " << minDiff << endl;
-    
+
 
 
     return 0;
