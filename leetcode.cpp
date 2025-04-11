@@ -25,6 +25,21 @@ vector<vector<int>> generate(int numRows) {
     
 }
 
+// 119. Pascal's Triangle II
+
+vector<int> getRow(int rowIndex) {
+        
+    vector<int> rows(rowIndex+1 , 1); // starts with 1's
+    
+    for(int i = 1; i<rowIndex; i++ ){
+        for(int j=i ; j>0 ; j--){
+            rows[j] += rows[j-1];
+        }
+    }
+
+    return rows;
+}
+
 // majority element
 
 int majorityElement(vector<int>& nums) {
@@ -118,7 +133,7 @@ int main(){
 
     cout<<endl;
 
-    /* // pascals triangle
+    /*// pascals triangle
 
     int numRows;
     cout<<"enter the number of rows"<<endl;
@@ -132,8 +147,10 @@ int main(){
         }
         cout << "\n";
     }
-    
+
     */
+    
+    cout<<endl;
    
    /* // majority element
 
@@ -143,11 +160,25 @@ int main(){
 
     */ 
 
-    //  // 121. Best Time to Buy and Sell Stock - one transaction allowed
+    /*  // 121. Best Time to Buy and Sell Stock - one transaction allowed
 
     vector<int> prices = {7,1,5,3,6,4};
     int max_profit = maxProfit(prices);
     cout << "Maximum Profit: " << max_profit << endl;
+    */
+
+     // pascals triangle II
+
+    int rowIndex;
+    cout<<"enter the row index"<<endl;
+    cin>>rowIndex;
+    vector<int> ans = getRow(rowIndex);
+    cout<<"pascals triangle II is : "<<endl;
+    for (int num : ans) {
+        cout << num << " ";
+    }
+    cout << "\n";
+    
     
 
 
