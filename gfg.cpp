@@ -103,6 +103,20 @@ int getMinDiff(vector<int> &arr, int k) {
     return diff ; 
 }
 
+//Kadane's Algorithm
+
+int maxSubArray(vector<int>& nums) {
+    int maxSum = nums[0];
+    int currentSum = nums[0];
+    
+    for (int i = 1; i < nums.size(); ++i) {
+        currentSum = max(nums[i], currentSum + nums[i]);
+        maxSum = max(maxSum, currentSum);
+    }
+    
+    return maxSum;
+}
+
 //printing the elements
 
 void printElements(const vector<int>& elements) {
@@ -143,12 +157,21 @@ int main(){
 
     */
 
-    // Minimum Difference
+    /* // Minimum Difference
 
     vector<int> arr = {1, 5, 8, 10};
     int k = 2;
     int minDiff = getMinDiff(arr, k);
     cout << "Minimum Difference: " << minDiff << endl;
+
+    */
+
+    // Kadane's Algorithm
+
+    vector<int> nums = {2, 3, -8, 7, -1, 2, 3};
+    int maxSum = maxSubArray(nums);
+    cout << "Maximum Subarray Sum: " << maxSum << endl;
+
 
 
 
