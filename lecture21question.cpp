@@ -241,7 +241,7 @@ int main(){
 
     vector<int>nums2={9,6,4,2,3,5,7,0,1};
     int ans2 = missingNumber(nums2);
-    cout<<ans2<<endl;
+    cout<<" missing number " << ans2<<endl;
 
     return 0;
 }
