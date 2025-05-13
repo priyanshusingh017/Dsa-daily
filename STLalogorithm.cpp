@@ -17,10 +17,14 @@ int main(){
     //binary_search function is used to check if the element is present in the vector or not
 
     cout<<"finding 20 -> "<<binary_search(v.begin(), v.end(), 20 )<<endl;
+    //it returns 1 if present and 0 if not present
+
 
     cout<<"lower bound of 20 -> "<<lower_bound(v.begin(), v.end(), 20)-v.begin()<<endl;
+    //lower_bound function is used to find the first element which is greater than or equal to the given element
 
     cout<<"upper bound of 20 -> "<<upper_bound(v.begin(), v.end(), 20)-v.begin()<<endl;
+    //upper_bound function is used to find the first element which is greater than the given element
 
     cout<<"reverse of vector -> ";
     reverse(v.begin(), v.end());

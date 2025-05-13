@@ -58,9 +58,5 @@ int main(){
         cout<<i->first<<" "<<i->second<<endl;
     }cout<<endl;
 
-
-
-
-
     return 0;
 }

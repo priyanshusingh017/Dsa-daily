@@ -19,7 +19,7 @@ int main(){
     s.insert(20);
     s.insert(4);
     s.insert(0);
-    s.insert(0);
+    s.insert(1);
 
     for(auto i:s){
         cout<<i<<" ";
@@ -33,7 +33,7 @@ int main(){
     it++;
     
     s.erase(it); //removes the second element from the set
-    cout<<"after erasing 10 "<<endl;
+    cout<<"after erasing "<<endl;
     for(auto i:s){
         cout<<i<<" ";
     }cout<<endl;
@@ -43,7 +43,7 @@ int main(){
     cout<<s.count(10)<<endl;
 
      //find function is used to find the element in the set
-     set<int>::iterator it1=s.find(20);
+     set<int>::iterator it1=s.find(4);
      //cout<<*it1<<endl; 
 
      for(auto it=it1; it!=s.end(); it++){
@@ -51,18 +51,5 @@ int main(){
 
         }cout<<endl;
      
-
-   
-
-
-
-
-
-
-
-
-
-
-
     return 0;
 }
