@@ -132,7 +132,7 @@ bool searchinrowcolsorted(vector<vector<int>> &matrix, int target){
     return false;
 }
 
-int mai(){
+int main(){
 
     int arr[3][4];
 
