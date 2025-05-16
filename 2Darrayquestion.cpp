@@ -1,75 +1,8 @@
 #include<iostream>
-#include <bits/stdc++.h>
-
-// linear visulazition of 2d array - c*i+j 
-//where i is the row and j is the column
-//c - no . of columns  ; r - no . of rows
-
-// int arr[r][c] = {}; 
-//cin>> arr[i][j]; 
-// cout<<arr[i][j]; 
+#include<bits/stdc++.h>
+#include<vector>
 
 using namespace std;
-
-bool ispresent(int arr[][4], int row, int col, int target){
-    for(int i=0; i<row; i++){
-        for(int j=0; j<col; j++){
-            if(arr[i][j] == target){
-                return true;
-            }
-        }
-    }
-    return false;
-}
-
-void printrowsum(int arr[][4], int row, int col){
-
-    cout<<"sum of each row -> "<<endl;
-
-    for(int row=0; row<3; row++){
-        int sum=0;
-        for(int col=0 ; col<4;col++){
-            sum += arr[row][col];
-        }
-        cout<<sum<<endl;
-    }
-
-}
-void printcolsum(int arr[][4], int row, int col){
-
-    cout<<"sum of each column -> "<<endl;
-    
-    for(int col=0; col<4; col++){
-        int sum=0;
-        for(int row=0 ; row<3;row++){
-            sum += arr[row][col];
-        }
-        cout<<sum<<" ";
-    }
-    cout<<endl;
-
-}
-
-void largestrowsum(int arr[][4], int row, int col){
-
-    int maxsum = INT_MIN;
-    int rowindex = -1;
-
-    for(int row=0; row<3; row++){
-        int sum=0;
-        for(int col=0 ; col<4;col++){
-            sum += arr[row][col];
-        }
-        if(sum > maxsum){
-            maxsum = sum;
-            rowindex = row;
-        }
-        
-    }
-    cout<<"maximum sum "<<maxsum<<endl;
-    cout<<"row index "<<rowindex<<endl;
-    
-} 
 
 vector<int> waveprint(int arr[][4], int nrow, int mcol){
 
@@ -141,9 +74,8 @@ vector<int> spiralorder(vector<vector<int>> &matrix){
     return ans;
 }
 
-// rotate the matrix by 90 degrees  
+//binary search in 2d array -> 
 
-//binary search in 2d array
 // search in row wise and column wise sorted array
 
 bool binarysearch(vector <vector<int>> &matrix, int target){
@@ -177,6 +109,7 @@ bool binarysearch(vector <vector<int>> &matrix, int target){
 }
 
 // search in row wise and column wise unsorted array
+
 bool searchinrowcolsorted(vector<vector<int>> &matrix, int target){
 
     int row = matrix.size();
@@ -199,16 +132,9 @@ bool searchinrowcolsorted(vector<vector<int>> &matrix, int target){
     return false;
 }
 
+int mai(){
 
-int main(){
-
-    // 2d array -> 3 rows and 4 columns
-
-    int arr[3][4]; 
-
-    //int arr[3][4] = {1 , 2 , 3 , 4 , 5 , 6 , 7 , 8 , 9 , 10 , 11 , 12}; 
-    //int arr[3][4] = {{1, 2, 3, 4},{5, 6, 7, 8},{9, 10, 11, 122}}; 
-
+    int arr[3][4];
 
     cout<<"enter the elements of the 2d array -> "<<endl;
 
@@ -218,15 +144,6 @@ int main(){
             cin>>arr[row][col];
         }
     }
-
- /*
-    // input column wise -> 
-    for(int col=0; col<4; col++){
-        for(int row=0 ; row<3;row++){
-            cin>>arr[row][col];
-        }
-    }
- */
 
     // printing the 2d array ->
 
@@ -238,34 +155,16 @@ int main(){
         cout<<endl;
     }
 
-    /* cout<<"enter the element to be searched -> ";
-    int target;
-    cin>>target;
-
-    // searching the element in the 2d array
-
-    if (ispresent(arr, 3, 4, target)){
-        cout<<"element found"<<endl;
-    } 
-    else{
-        cout<<"element not found"<<endl;
-    }
-        */
-
-    // printrowsum(arr, 3, 4); // sum of each row
-    // printcolsum(arr, 3, 4); // sum of each column
-    
-    // largestrowsum(arr, 3, 4); // largest sum of each row
-
-    /*
-    vector<int> ans = waveprint(arr, 3, 4); // wave print of the array
+   
+    // wave print of the array
+    vector<int> ans = waveprint(arr, 3, 4); 
     cout<<"wave print of the array -> "<<endl;
     for(auto i: ans){
         cout<<i<<" ";
     }cout<<endl;
-    */
+    
 
-    /*
+    // spiral print of the array
     vector<vector<int>> matrix = {{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}};
     vector<int> spiral = spiralorder(matrix);
     cout<<"spiral order of the matrix -> "<<endl;
@@ -273,18 +172,19 @@ int main(){
         cout<<i<<" ";
     }cout<<endl;
 
-    */
+  
 
      // binary search in 2d array
-    vector<vector<int>> matrix = {{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}};
+    vector<vector<int>> matrix2 = {{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}};
     
-    if(binarysearch(matrix, 10)){
+    if(binarysearch(matrix2, 10)){
         cout<<"element found"<<endl;
     }
     else{
         cout<<"element not found"<<endl;
     }
 
+    // search in row wise and column wise unsorted array
     vector<vector<int>> matrix1 = {{10, 20, 30}, {15, 25, 35}, {27, 29, 37}};
     if(searchinrowcolsorted(matrix1, 29)){
         cout<<"element found"<<endl;
@@ -293,6 +193,6 @@ int main(){
         cout<<"element not found"<<endl;
     }
 
-    return 0;
 
+    return 0;
 }
