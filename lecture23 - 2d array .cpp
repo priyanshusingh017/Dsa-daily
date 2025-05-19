@@ -75,7 +75,7 @@ int main(){
 
     // 2d array -> 3 rows and 4 columns
 
-    int arr[3][4]; 
+    int arr[3][3]; 
 
     //int arr[3][4] = {1 , 2 , 3 , 4 , 5 , 6 , 7 , 8 , 9 , 10 , 11 , 12}; 
     //int arr[3][4] = {{1, 2, 3, 4},{5, 6, 7, 8},{9, 10, 11, 122}}; 
@@ -83,27 +83,42 @@ int main(){
 
     cout<<"enter the elements of the 2d array -> "<<endl;
 
+    /*
     // input rows wise -> 
     for(int row=0; row<3; row++){
-        for(int col=0 ; col<4;col++){
+        for(int col=0 ; col<3;col++){
             cin>>arr[row][col];
         }
     }
+        */
 
- /*
+ 
     // input column wise -> 
-    for(int col=0; col<4; col++){
+    for(int col=0; col<3; col++){
         for(int row=0 ; row<3;row++){
             cin>>arr[row][col];
         }
     }
- */
+
+    
+ 
 
     // printing the 2d array ->
 
     cout<< " printing the 2d array -> "<<endl;
     for(int row=0; row<3; row++){
-        for(int col=0 ; col<4; col++){
+        for(int col=0 ; col<3; col++){
+            cout<<arr[row][col]<<" ";
+        }
+        cout<<endl;
+    }
+
+    // printing the 2d array ->
+
+    cout<< " printing the 2d array -> "<<endl;
+    for(int row=0; row<3; row++){
+        for(int col=0 ; col<3; col++){
+            reverse(arr[row], arr[row] + 3);
             cout<<arr[row][col]<<" ";
         }
         cout<<endl;
@@ -123,10 +138,10 @@ int main(){
     }
         */
 
-    printrowsum(arr, 3, 4); // sum of each row
-    printcolsum(arr, 3, 4); // sum of each column
+    //printrowsum(arr, 3, 4); // sum of each row
+    //printcolsum(arr, 3, 4); // sum of each column
     
-    largestrowsum(arr, 3, 4); // largest sum of each row
+    //largestrowsum(arr, 3, 4); // largest sum of each row
 
     
 

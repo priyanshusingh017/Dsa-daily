@@ -132,6 +132,26 @@ bool searchinrowcolsorted(vector<vector<int>> &matrix, int target){
     return false;
 }
 
+// 90 degree rotation of the matrix
+void rotate(vector<vector<int>>& matrix){
+
+
+    int n = matrix.size();
+
+
+    //tranpose the matrix
+    for(int i = 0 ;i<n; i++){
+        for(int j = i ; j<n ; j++){
+            swap(matrix[i][j] , matrix[j][i]);
+        }
+    }
+
+    //reverse the matrix
+    for(int i = 0 ; i<n ; i++){
+        reverse(matrix[i].begin(), matrix[i].end());
+    }
+}
+
 int main(){
 
     int arr[3][4];
@@ -193,6 +213,16 @@ int main(){
         cout<<"element not found"<<endl;
     }
 
+    // 90 degree rotation of the matrix
+    vector<vector<int>> matrix3 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    rotate(matrix3);
+    cout<<"90 degree rotation of the matrix -> "<<endl;
+    for(int i = 0 ; i<matrix3.size(); i++){
+        for(int j = 0 ; j<matrix3[0].size(); j++){
+            cout<<matrix3[i][j]<<" ";
+        }
+        cout<<endl;
+    }
 
     return 0;
 }

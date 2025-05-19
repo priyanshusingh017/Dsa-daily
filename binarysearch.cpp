@@ -30,6 +30,31 @@ int binarysearch(int arr[],int n ,int key){
     return -1;
 }
 
+int search(vector<int>& nums, int target){
+
+    int s= 0 ; 
+    int e = nums.size()-1;
+
+    // int mid = (s+e)/2;
+    // if we take (s+e)/2 then it may cause overflow
+
+    while(s<=e){
+        int mid = s+(e-s)/2;
+
+        if(nums[mid]==target){
+            return mid;
+        }
+        else if (nums[mid]< target){
+            s=mid+1;
+        }
+        else{
+            e=mid-1;
+        }
+    }
+    return -1;       
+}
+
+
 int main(){
 
     int n;
@@ -58,6 +83,27 @@ int main(){
     }
     else{
         cout<<"element found at index "<<binarysearch(arr,n,key)<<endl;
+    }
+
+    vector<int> nums;
+    cout<<"enter the size of vector"<<endl;
+    int m;
+    cin>>m;
+    cout<<"enter the elements of vector"<<endl;
+    for(int i=0;i<m;i++){
+        int x;
+        cin>>x;
+        nums.push_back(x);
+    }
+    cout<<"enter the element to be searched in vector"<<endl;
+    int target;
+    cin>>target;
+    int ans = search(nums,target);
+    if(ans == -1){
+        cout<<"element not found in vector"<<endl;
+    }
+    else{
+        cout<<"element found at index "<<ans<<endl;
     }
     
     return 0;
