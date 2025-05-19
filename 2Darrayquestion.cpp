@@ -152,6 +152,18 @@ void rotate(vector<vector<int>>& matrix){
     }
 }
 
+//Determine Whether Matrix Can Be Obtained By Rotation
+bool findRotation(vector<vector<int>>& mat, vector<vector<int>>& target) {
+    int n = mat.size();
+    for (int i = 0; i <4; i++) {
+        if (mat == target) {
+            return true;
+        }
+        rotate(mat);
+    }
+    return false;
+}
+
 int main(){
 
     int arr[3][4];
@@ -214,7 +226,7 @@ int main(){
     }
 
     // 90 degree rotation of the matrix
-    vector<vector<int>> matrix3 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    vector<vector<int>> matrix3 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}; 
     rotate(matrix3);
     cout<<"90 degree rotation of the matrix -> "<<endl;
     for(int i = 0 ; i<matrix3.size(); i++){
@@ -222,6 +234,16 @@ int main(){
             cout<<matrix3[i][j]<<" ";
         }
         cout<<endl;
+    }
+
+    // Determine Whether Matrix Can Be Obtained By Rotation
+    vector<vector<int>> mat = {{0 , 0 , 0 } , {0 , 1 , 0} , {1 , 1 , 1}};
+    vector<vector<int>> target = {{1 , 1 , 1} , {0 , 1 , 0} , {0 , 0 , 0}};
+    if(findRotation(mat, target)){
+        cout<<"matrix can be obtained by rotation"<<endl;
+    }
+    else{
+        cout<<"matrix cannot be obtained by rotation"<<endl;
     }
 
     return 0;
