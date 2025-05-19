@@ -189,8 +189,6 @@ string triangleType(vector<int>& nums){
     }
 }
 
-// right angle triangle
-
 int main(){
 
     int arr[3][4];
