@@ -164,6 +164,33 @@ bool findRotation(vector<vector<int>>& mat, vector<vector<int>>& target) {
     return false;
 }
 
+//types of triangle
+string triangleType(vector<int>& nums){
+    int a = nums[0];
+    int b = nums[1];
+    int c = nums[2];
+
+    // check if the sides form a valid triangle
+    if (a + b <= c || a + c <= b || b + c <= a) {
+        return "none";
+    }
+
+    if (a*a + b*b == c*c || a*a + c*c == b*b || b*b + c*c == a*a) {
+        return "right-angle triangle";
+    }
+    else if(a==b && b==c){
+        return "equilateral";
+    }
+    else if (a==b || b==c || c==a){
+        return "isosceles";
+    }
+    else{
+        return "scalene";
+    }
+}
+
+// right angle triangle
+
 int main(){
 
     int arr[3][4];
@@ -245,6 +272,15 @@ int main(){
     else{
         cout<<"matrix cannot be obtained by rotation"<<endl;
     }
+
+    // types of triangle - none, right-angle triangle, equilateral, isosceles, scalene
+    vector<int> nums = {3, 4, 5};
+    vector<int> nums1 = {3, 3, 3};
+    string result = triangleType(nums);
+    string result1 = triangleType(nums1);
+    cout << "The triangle is: " << result << endl;
+    cout << "The triangle is: " << result1 << endl;
+    
 
     return 0;
 }
