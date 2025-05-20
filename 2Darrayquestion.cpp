@@ -135,9 +135,7 @@ bool searchinrowcolsorted(vector<vector<int>> &matrix, int target){
 // 90 degree rotation of the matrix
 void rotate(vector<vector<int>>& matrix){
 
-
     int n = matrix.size();
-
 
     //tranpose the matrix
     for(int i = 0 ;i<n; i++){
@@ -189,6 +187,44 @@ string triangleType(vector<int>& nums){
     }
 }
 
+// diagonal traversal 
+
+vector<int> diagonaltraversal(vector<vector<int>>& matrix){
+
+    int n = matrix.size();
+    int m = matrix[0].size();
+
+    map<int , vector<int>>diagonal;
+
+    for(int i = 0 ; i<n; i++){
+        for(int j = 0 ; j<m; j++){
+            diagonal[i+j].push_back(matrix[i][j]);
+        }
+    }
+
+    vector<int>ans;
+
+    for(auto& entry : diagonal){
+        vector<int>& diagonals = entry.second;
+
+        //reverse 
+        if(entry.first % 2 == 0){
+            reverse(diagonals.begin() , diagonals.end());
+        }
+
+        // ans.insert(ans.end(), diagonals.begin(), diagonals.end());
+
+        for(int i=0; i<diagonals.size(); i++){
+            ans.push_back(diagonals[i]);
+        }
+    }
+
+    return ans;
+}
+
+
+
+
 int main(){
 
     int arr[3][4];
@@ -230,8 +266,7 @@ int main(){
     }cout<<endl;
 
   
-
-     // binary search in 2d array
+    // binary search in 2d array
     vector<vector<int>> matrix2 = {{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}};
     
     if(binarysearch(matrix2, 10)){
@@ -278,7 +313,15 @@ int main(){
     string result1 = triangleType(nums1);
     cout << "The triangle is: " << result << endl;
     cout << "The triangle is: " << result1 << endl;
-    
+
+    //diagonal traversal 
+    vector<vector<int>> matrix4 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    vector<int> diagonal = diagonaltraversal(matrix4);
+    cout<<"diagonal traversal of the matrix -> "<<endl;
+    for(auto i: diagonal){
+        cout<<i<<" ";
+    }cout<<endl;
+
 
     return 0;
 }
