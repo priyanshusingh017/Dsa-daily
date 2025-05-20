@@ -27,7 +27,7 @@ void printarray(int arr[],int n){
 
 int main(){
 
-    int arr[]={2 , 47 , 32, 1 , 12 , 0};
+    int arr[]={8,4,5,3,1,6,7,2};
 
     int n=sizeof(arr)/sizeof(int);
 

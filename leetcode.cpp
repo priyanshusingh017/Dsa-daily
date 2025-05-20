@@ -82,6 +82,24 @@ int maxProfit(vector<int>& prices) {
     return profit ; 
 }
 
+// min and max of an array
+pair<int , int> minmax(vector<int>& arr){
+
+    int a = INT_MIN;
+    int b = INT_MAX;
+
+    for(int i=0 ; i<arr.size() ; i++){
+        if(arr[i]<b){
+            b = arr[i];
+        }
+        if(arr[i]>a){
+            a = arr[i];
+        }
+    }
+
+    return {b , a};
+}
+
 int main(){
 
     //problem 1 
@@ -165,7 +183,9 @@ int main(){
     cout << "Maximum Profit: " << max_profit << endl;
     */
 
-     // pascals triangle II
+    /*
+
+    // pascals triangle II
 
     int rowIndex;
     cout<<"enter the row index"<<endl;
@@ -176,6 +196,16 @@ int main(){
         cout << num << " ";
     }
     cout << "\n";
+
+    */
+
+    // min and max of an array
+    vector<int> arr = {1, 2, 3, 4, 5};
+    pair<int , int> ans = minmax(arr);
+    cout<<"min and max of the array is : "<<endl;
+    cout<<"min : "<<ans.first<<endl;
+    cout<<"max : "<<ans.second<<endl;
+    cout<<endl;
     
     
 

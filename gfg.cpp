@@ -15,6 +15,7 @@ vector<int> findMajority(vector<int>& arr) {
     int n = arr.size();
     
     for(auto num : arr){
+
         freq[num]++;
         
     }
@@ -117,6 +118,37 @@ int maxSubArray(vector<int>& nums) {
     return maxSum;
 }
 
+// sort 0s , 1s and 2s -> 
+void sort012(vector<int>& arr) {
+
+        // sort(arr.begin() , arr.end());
+
+        // Dutch National Flag Algorithm ->
+        int low = 0 , mid = 0 , high = arr.size() - 1;
+        
+        while(mid<=high){
+            if(arr[mid]==0){
+                
+                // swap current element with low pointer and move both pointer forward -> 
+                swap(arr[low] , arr[mid]);
+                low++;
+                mid++;
+            }
+            else if(arr[mid]==1){
+                
+                // move the pointer -> 
+                mid++;
+            }
+            else { // arr[mid] == 2 
+                
+                // swap current element with high pointer and move pointer backward -> 
+                swap(arr[mid] , arr[high]);
+                high -- ; 
+            }
+        }
+        
+}
+
 //printing the elements
 
 void printElements(const vector<int>& elements) {
@@ -129,8 +161,6 @@ void printElements(const vector<int>& elements) {
 
 int main(){
 
-
-    /*
     //Finding Majority Elements
     
     vector<int> arr = {2, 1, 5, 5, 5, 5, 6, 6, 6, 6, 6};
@@ -139,38 +169,40 @@ int main(){
     
     cout << "Majority Elements: ";
     printElements(result);
+    cout << endl;
 
-    */
-
-    /*//Stock Buy and Sell
+    //Stock Buy and Sell
     vector<int> prices = {1, 2, 3, 4, 5};
     int maxProfit = maximumProfit(prices);
     cout << "Maximum Profit: " << maxProfit << endl;
-    */
+    cout << endl;
 
-    /*// Next Palindrome
-
-    vector<int> arr = {2, 4, 1, 7, 5, 0};
-    nextpalidrome(arr);
+    // Next Palindrome
+    vector<int> arr1 = {2, 4, 1, 7, 5, 0};
+    nextpalidrome(arr1);
     cout << "Next Palindrome: ";
-    printElements(arr);
+    printElements(arr1);
+    cout << endl;
 
-    */
-
-    /* // Minimum Difference
-
-    vector<int> arr = {1, 5, 8, 10};
+    // Minimum Difference
+    vector<int> arr2 = {1, 5, 8, 10};
     int k = 2;
-    int minDiff = getMinDiff(arr, k);
+    int minDiff = getMinDiff(arr2, k);
     cout << "Minimum Difference: " << minDiff << endl;
-
-    */
+    cout << endl;
 
     // Kadane's Algorithm
-
     vector<int> nums = {2, 3, -8, 7, -1, 2, 3};
     int maxSum = maxSubArray(nums);
     cout << "Maximum Subarray Sum: " << maxSum << endl;
+    cout << endl;
+
+    // Sort 0s, 1s, and 2s
+    vector<int> arr3 = {0, 1, 2, 0, 1, 2, 0};
+    sort012(arr3);
+    cout << "Sorted Array: ";
+    printElements(arr3);
+    cout << endl;
 
 
 
