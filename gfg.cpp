@@ -128,25 +128,46 @@ void sort012(vector<int>& arr) {
         
         while(mid<=high){
             if(arr[mid]==0){
-                
                 // swap current element with low pointer and move both pointer forward -> 
                 swap(arr[low] , arr[mid]);
                 low++;
                 mid++;
             }
             else if(arr[mid]==1){
-                
                 // move the pointer -> 
                 mid++;
             }
             else { // arr[mid] == 2 
-                
                 // swap current element with high pointer and move pointer backward -> 
                 swap(arr[mid] , arr[high]);
                 high -- ; 
             }
         }
         
+}
+
+// maximum subarray product - find the maximum product of a contiguous subarray
+int maxProduct(vector<int>& arr) {
+    int maxprod = arr[0];
+    int currentprod = arr[0];
+    int currentmin = arr[0];
+
+    for(int i=1; i<arr.size(); i++){
+        if(arr[i]<0){
+            swap(currentprod , currentmin);
+        }
+        currentprod =max(arr[i] , currentprod*arr[i]);
+        currentmin = min(arr[i] , currentmin*arr[i]);
+
+        maxprod = max(maxprod , currentprod);
+    }
+
+    return maxprod;
+}
+
+// maximun circular subarray sum - find the maximum sum of a circular subarray
+void circularSubarraySum(vector<int> &arr){
+
 }
 
 //printing the elements
@@ -203,7 +224,19 @@ int main(){
     cout << "Sorted Array: ";
     printElements(arr3);
     cout << endl;
+    
+    // Maximum Subarray Product
+    vector<int> arr4 = {2, 3, -2, 4};
+    int maxProductResult = maxProduct(arr4);
+    cout << "Maximum Subarray Product: " << maxProductResult << endl;
+    cout << endl;
 
+    // Maximum Circular Subarray Sum
+    vector<int> arr5 = {{10, -3, -4, 7, 6, 5, -4, -1}};
+    circularSubarraySum(arr5);
+    cout << "Maximum Circular Subarray Sum: ";
+    printElements(arr5);
+    cout << endl;
 
 
 

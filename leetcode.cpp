@@ -100,6 +100,65 @@ pair<int , int> minmax(vector<int>& arr){
     return {b , a};
 }
 
+//set matrix zeroes
+void setZeroes(vector<vector<int>>& matrix) {
+    
+    int n = matrix.size();
+    int m = matrix[0].size();
+
+    bool firstRowZero = false;
+    bool firstColZero = false;
+
+    // check if first col has any zero
+    for(int i = 0 ; i<n; i++){
+        if(matrix[i][0] == 0){
+            firstColZero = true;
+            break;
+        }
+    }
+    // check if first row has any zero
+    for(int j = 0 ; j<m; j++){
+        if(matrix[0][j] == 0){
+            firstRowZero = true;
+            break;
+        }
+    }
+
+    // mark the first row and first column
+    for(int i = 1 ; i<n; i++){
+        for(int j = 1 ; j<m; j++){
+            if(matrix[i][j] == 0){
+                matrix[i][0] = 0;
+                matrix[0][j] = 0;
+            }
+        }
+    }
+
+    // set the matrix to zero based on the marks
+    for(int i=1 ; i<n; i++){
+        for(int j=1; j<m; j++){
+            if(matrix[i][0] ==0 || matrix[0][j] == 0){
+                matrix[i][j] = 0;
+            }
+        }
+    }
+
+    // set the first row to zero if needed
+    if(firstRowZero){
+        for(int j = 0 ; j<m; j++){
+            matrix[0][j] = 0;
+        }
+    }
+
+    // set the first column to zero if needed
+    if(firstColZero){
+        for(int i = 0 ; i<n; i++){
+            matrix[i][0] = 0;
+        }
+    }
+    
+}
+
 int main(){
 
     //problem 1 
@@ -206,8 +265,25 @@ int main(){
     cout<<"min : "<<ans.first<<endl;
     cout<<"max : "<<ans.second<<endl;
     cout<<endl;
-    
-    
+
+    // set matrix zeroes
+    vector<vector<int>> matrix = {{0,1,2,0},{3,4,5,2},{1,3,1,5}};
+    cout<<"matrix before setting zeroes : "<<endl;
+    for (const auto& row : matrix) {
+        for (int num : row) {
+            cout << num << " ";
+        }
+        cout << "\n";
+    }
+    setZeroes(matrix);
+    cout<<"matrix after setting zeroes : "<<endl;
+    for (const auto& row : matrix) {
+        for (int num : row) {
+            cout << num << " ";
+        }
+        cout << "\n";
+    }
+    cout<<endl;
 
 
     return 0;
