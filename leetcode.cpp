@@ -211,6 +211,24 @@ vector<int> searchRange(vector<int>& nums, int target) {
     return result;
 }
 
+// rank of a number
+vector<int> arrayRankTransform(vector<int>& arr) {
+    vector<int> sortedarr = arr;
+    sort(sortedarr.begin(), sortedarr.end());
+    unordered_map<int , int>ans;
+    int rank=1;
+    for(auto num : sortedarr){
+        if(ans.find(num)==ans.end()){
+            ans[num]=rank++;
+        }
+    }
+    vector<int>result(arr.size());
+    for(int i=0; i<arr.size(); i++){
+        result[i]=ans[arr[i]];
+    }
+    return result;
+}
+
 int main(){
 
     /*
@@ -374,6 +392,15 @@ int main(){
     cout << "First and last position of target " << target2 << ": ";
     for(auto i : searchRangeResult){
         cout<<i<<" ";
+    }
+    cout<<endl;
+
+    // rank of a number
+    vector<int> arr1 = {40,10,20,30};
+    vector<int> rankResult = arrayRankTransform(arr1);
+    cout << "Rank of the numbers: ";
+    for (int rank : rankResult) {
+        cout << rank << " ";
     }
     cout<<endl;
 
