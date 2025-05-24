@@ -159,104 +159,166 @@ void setZeroes(vector<vector<int>>& matrix) {
     
 }
 
+//find words containing character
+vector<int> findWordsContaining(vector<string>& words, char x) {
+    vector<int>result;
+    for(int i=0; i<words.size(); i++){
+        if(words[i].find(x)!= -1){ // alternate of -1 -> string::npos 
+            result.push_back(i);
+        }
+    }
+    return result;
+}
+
+// find target indices after sorting -> 
+vector<int> targetIndices(vector<int>& nums, int target){
+    for(int i=0; i<nums.size(); i++){
+        int minindex =i;
+        for(int j=i+1; j<nums.size(); j++){
+            if(nums[minindex]>nums[j]){
+                minindex=j;
+            }
+        }
+        swap(nums[i] , nums[minindex]);
+    }
+    vector<int>result;
+    for(int i=0; i<nums.size(); i++){
+        if(nums[i]==target){
+            result.push_back(i);
+        }
+    }
+    return result;
+}
+
+// find first and last position of element in sorted array
+vector<int> searchRange(vector<int>& nums, int target) {
+    vector<int>result;
+    int firstoccurence =-1 , lastoccurence =-1;
+    for(int i=0; i<nums.size(); i++){
+        if(nums[i]==target){
+            firstoccurence = i;
+            break;
+        }
+    }
+    for(int i=nums.size()-1; i>=0; i--){
+        if(nums[i]==target){
+            lastoccurence = i;
+            break;
+        }
+    }
+    result.push_back(firstoccurence);
+    result.push_back(lastoccurence);
+    return result;
+}
+
 int main(){
 
-    //problem 1 
     /*
-     int n;
-    cin>>n;
+
+    //problem 1 - difference between product and sum of digits
+    
+    int n1;
+    cout<<"enter the number for problem 1"<<endl;
+    cin>>n1;
     int product =1;
     int sum=0;
-    while(n!=0){
+    int answer1 = 0;
+    int temp1 = n1;
+    while(temp1!=0){
 
-        int digit =n%10;
+        int digit = temp1%10;
         product=product*digit;
         sum=sum+digit;
-        n/=10;
+        temp1/=10;
     }
-    int answer = product -sum;
-    cout<<answer;
-    */
+    answer1 = product - sum;
+    cout<<"difference between product and sum of digits is : "<<endl;
+    cout<<answer1;
+    cout<<endl;
+    
 
-   //problem 2
+   //problem 2 - count of odd digits
 
-   /*int n;
-   cin>>n;
-   int count=0;
-   while(n!=0){
-    if (n&1){
-       count++;
+   int n2;
+   cout<<"enter the number for problem 2"<<endl;
+   cin>>n2;
+   int count2=0;
+   int temp2 = n2;
+   while(temp2!=0){
+    if (temp2&1){
+       count2++;
     }
-    n=(n/10);
+    temp2=(temp2/10);
    }
-   cout<<count;*/
+    cout<<"count of odd digits is : "<<endl;
+   cout<<count2;
+   cout<<endl;
 
-//PROBLEM 3 
+   //PROBLEM 3 - reverse of a number
 
-   /*int n;
-   cin>>n;
-   int answer=0;
-   while(n!=0){
-    int digit=n%10;
-    if(answer>INT32_MAX/10 || answer<INT32_MIN/10){
+   int n3;
+    cout<<"enter the number for problem 3"<<endl;
+   cin>>n3;
+   int answer3=0;
+   int temp3 = n3;
+   while(temp3!=0){
+    int digit=temp3%10;
+    if(answer3>INT_MAX/10 || answer3<INT_MIN/10){
         cout<<0;
     }
-    answer=answer*10+digit;
-    n=n/10;
+    answer3=answer3*10+digit;
+    temp3=temp3/10;
    }
-   cout<<answer;*/
+    cout<<"reverse of the number is : "<<endl;
+   cout<<answer3;
 
     cout<<endl;
 
-    /*// pascals triangle
+    // pascals triangle
 
     int numRows;
     cout<<"enter the number of rows"<<endl;
     cin>>numRows;
-    vector<vector<int>> ans = generate(numRows);
+    vector<vector<int>> ansTriangle = generate(numRows);
     cout<<"pascals triangle is : "<<endl;
 
-    for (const auto& row : ans) {
+    for (const auto& row : ansTriangle) {
         for (int num : row) {
             cout << num << " ";
         }
         cout << "\n";
     }
-
-    */
-    
     cout<<endl;
    
-   /* // majority element
+   // majority element
 
     vector<int> nums = {2,2,1,1,1,2,2};
     int majority = majorityElement(nums);
     cout << "Majority Element: " << majority << endl;
 
-    */ 
+    cout<<endl;
 
-    /*  // 121. Best Time to Buy and Sell Stock - one transaction allowed
+    // 121. Best Time to Buy and Sell Stock - one transaction allowed
 
     vector<int> prices = {7,1,5,3,6,4};
     int max_profit = maxProfit(prices);
     cout << "Maximum Profit: " << max_profit << endl;
-    */
-
-    /*
+    cout<<endl;
 
     // pascals triangle II
 
     int rowIndex;
     cout<<"enter the row index"<<endl;
     cin>>rowIndex;
-    vector<int> ans = getRow(rowIndex);
+    vector<int> ansRow = getRow(rowIndex);
     cout<<"pascals triangle II is : "<<endl;
-    for (int num : ans) {
+    for (int num : ansRow) {
         cout << num << " ";
     }
     cout << "\n";
-
     */
+
+    
 
     // min and max of an array
     vector<int> arr = {1, 2, 3, 4, 5};
@@ -285,6 +347,35 @@ int main(){
     }
     cout<<endl;
 
+    // find words containing character
+    vector<string> words = {"hello", "world", "leetcode", "code"};
+    char x = 'e';
+    vector<int> indices = findWordsContaining(words, x);
+    cout << "Words containing character '" << x << "': ";
+    for (int index : indices) {
+        cout << index << " ";
+    }
+    cout<<endl;
+
+    // find target indices after sorting
+    vector<int> nums1 = {1,2,5,2,3};
+    int target = 2;
+    vector<int> targetIndicesResult = targetIndices(nums1, target);
+    cout << "Target indices after sorting "<<target<<": ";
+    for (int index : targetIndicesResult) {
+        cout << index << " ";
+    }
+    cout<<endl;
+
+    // find first and last position of element in sorted array
+    vector<int> nums2 = {5,7,7,8,8,10};
+    int target2 = 8;
+    vector<int> searchRangeResult = searchRange(nums2, target2);
+    cout << "First and last position of target " << target2 << ": ";
+    for(auto i : searchRangeResult){
+        cout<<i<<" ";
+    }
+    cout<<endl;
 
     return 0;
 }

@@ -61,9 +61,10 @@ int main(){
     cout<<"string -> "<<s<<endl;
     //cout<<"string size -> "<<s.size()<<endl;
     cout<<"string length -> "<<s.length()<<endl;
+    // find function is used to find the first occurrence of the given character in the string and returns the index of the first occurrence
+    cout<<"find function -> "<<s.find('h')<<endl;
     reverse(s.begin(), s.end());
     cout<<"reversed string -> "<<s<<endl;
-
     
     
     return 0;
