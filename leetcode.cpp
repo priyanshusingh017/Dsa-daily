@@ -229,6 +229,60 @@ vector<int> arrayRankTransform(vector<int>& arr) {
     return result;
 }
 
+// divisible-and-non-divisible-sums-difference 
+int differenceOfSums(int n, int m) {
+    int sum1 = 0 , sum2 = 0 ;
+    for(int i = 1 ; i<=n; i++){
+        if(i%m!=0){
+            sum1 += i; 
+        }
+        else{
+            sum2 += i;
+        }
+    }
+    return sum1 - sum2;
+}
+
+// smallest-index-with-digit-sum-equal-to-index
+
+int smallestIndex(vector<int>& nums) {
+    for(int i=0; i<nums.size(); i++){
+        int digit=nums[i];
+        int sum=0;
+        while(digit>0){
+            sum += digit%10;
+            digit /= 10;
+        }
+        if(sum ==i){
+            return i;
+        }
+    }
+    return -1; 
+}
+
+// sqrt of a number 
+int mysqrt(int x){
+    if(x<2) return x;
+    int left=2 ,  right = x/2 , ans=1;
+    while(left <= right){
+        int mid = left + (right - left)/2;
+        long long square = (long long)mid*mid;
+        if(square ==x){
+            return mid;
+        }
+        else if(square <x){
+            ans = mid;
+            left = mid+1;
+        }
+        else{
+            right= mid-1;
+        }
+    }
+    return ans;
+}
+
+
+
 int main(){
 
     /*
@@ -403,6 +457,29 @@ int main(){
         cout << rank << " ";
     }
     cout<<endl;
+
+    // divisible-and-non-divisible-sums-difference
+    int n = 10, m = 3;
+    int difference = differenceOfSums(n, m);
+    cout << "Difference of sums: " << difference << endl;
+    cout<<endl; 
+
+    // smallest-index-with-digit-sum-equal-to-index
+    vector<int> nums3 = {1,3,2};
+    int smallestIndexResult = smallestIndex(nums3);
+    if (smallestIndexResult != -1) {
+        cout << "Smallest index with digit sum equal to index: " << smallestIndexResult << endl;
+    } else {
+        cout << "No such index found." << endl;
+    }
+    cout<<endl;
+
+    // sqrt of a number
+    int x1 = 2;
+    int sqrtResult = mysqrt(x1);
+    cout << "Square root of " << x1 << " is: " << sqrtResult << endl;
+    cout<<endl;
+
 
     return 0;
 }
