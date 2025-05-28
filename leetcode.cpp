@@ -329,6 +329,45 @@ int gcd1(int a , int b){
     return gcd1(a , a%b);
 }
 
+// ugly number - 263
+bool isugly(int n){
+    for(int i=2; i<=5; i++){
+        if(n==0) return false;
+        while(n%i==0){
+            n /= i;
+        }
+    }
+    return n==1;
+}
+
+// first n ugly number - 
+int nthuglynumber(int n){
+    if(n==0) return false;
+    int count = 0;
+    int num = 1;
+    while(count<n){
+        if(isugly(num)){
+            count++;
+        }
+        num++;
+    }
+    return num-1; 
+}
+
+// first n ugly number - without using isugly function homework
+
+// no of common factors
+int commonFactors(int a, int b) {
+    int count = 0;
+    for (int i = 1; i <= min(a, b); i++) {
+        if (a % i == 0 && b % i == 0) {
+            count++;
+        }
+    }
+    return count;
+}
+
+
 int main(){
 
     /*
@@ -543,6 +582,24 @@ int main(){
     cout<<gcdresult<<endl;
     cout << "GCD of " << a << " and " << b << " is: " << gcdResult << endl;
     cout<<endl;
+
+    // ugly number
+    int n3;
+    cout << "Enter a number to check if it is an ugly number: ";
+    cin >> n3;
+    if (isugly(n3)) {
+        cout << n3 << " is an ugly number." << endl;
+    } else {
+        cout << n3 << " is not an ugly number." << endl;
+    }
+    cout<<endl;
+
+    // nth ugly number
+    int n4;
+    cout << "Enter the value of n to find the nth ugly number: ";
+    cin >> n4;
+    int nthUglyNumberResult = nthuglynumber(n4);
+    cout << "The " << n4 << "th ugly number is: " << nthUglyNumberResult << endl;
 
 
     return 0;
