@@ -281,7 +281,53 @@ int mysqrt(int x){
     return ans;
 }
 
+// isprime function - 
+bool isprime(int x){
+    if(x<=1) return false;
+    for(int i=2; i<x; i++){
+        if(x%i==0){
+            return false;
+        }
+    }
+    return true;
+}
 
+// cout prime no. - sieve of eratosthenes - 204
+int countprime(int n){
+    int count=0;
+    vector<bool>isprime(n+1, true);
+    isprime[0] = isprime[1]=false;
+    for(int i=2; i<n; i++){
+        if(isprime[i]){
+            count++;
+            for(int j=2*i; j<=n; j=j+i){
+                isprime[j]=false;
+            }
+        }
+    }
+    return count;
+}
+
+// segment sieve - homework 
+
+// euclid's algorithm - recursive version
+int gcd(int a, int b){
+    if(a==0) return b;
+    if(b==0) return a;
+    while(b!=0){
+        if(a>b){
+            a = a-b;
+        }
+        else{
+            b = b-a;
+        }
+    }
+    return a;
+}
+int gcd1(int a , int b){
+    if(b==0) return a;
+    return gcd1(a , a%b);
+}
 
 int main(){
 
@@ -478,6 +524,24 @@ int main(){
     int x1 = 2;
     int sqrtResult = mysqrt(x1);
     cout << "Square root of " << x1 << " is: " << sqrtResult << endl;
+    cout<<endl;
+
+    // count prime numbers
+    int x2;
+    cout<<"enter the number to count prime numbers less than it"<<endl;
+    cin>>x2;
+    int count = countprime(x2);
+    cout << "Count of prime numbers less than " << x2 << ": " << count << endl;
+    cout<<endl;
+
+    // gcd of two numbers
+    int a, b;
+    cout << "Enter two numbers to find GCD: ";
+    cin >> a >> b;
+    int gcdResult = gcd1(a, b);
+    int gcdresult = gcd(a, b);
+    cout<<gcdresult<<endl;
+    cout << "GCD of " << a << " and " << b << " is: " << gcdResult << endl;
     cout<<endl;
 
 
