@@ -1,4 +1,5 @@
 #include<iostream>
+#include<bits/stdc++.h>
 #include<vector>
 #include<algorithm>
 #include<unordered_map>
@@ -326,7 +327,7 @@ int gcd(int a, int b){
 }
 int gcd1(int a , int b){
     if(b==0) return a;
-    return gcd1(a , a%b);
+    return gcd1(b, a%b);
 }
 
 // ugly number - 263
@@ -361,13 +362,36 @@ int commonFactors(int a, int b) {
     int count = 0;
     for (int i = 1; i <= min(a, b); i++) {
         if (a % i == 0 && b % i == 0) {
+            // cout << i << " "; // print common factor
             count++;
         }
     }
     return count;
 }
 
-
+// contains duplicate - 217
+bool containsDuplicate(vector<int>& nums) {
+    unordered_set<int>seen;
+    for(int num : nums){
+        if(seen.count(num)){
+            return true;
+        }
+        seen.insert(num);
+    }
+    return false;
+}
+bool containsDuplicate1(vector<int>& nums){
+    unordered_map<int,int>freq;
+    for(auto i:nums){
+        freq[i]++;
+    }
+    for(auto i1:freq){
+        if(i1.second>1){
+            return true;
+        }
+    }
+    return false;
+}
 int main(){
 
     /*
@@ -601,6 +625,35 @@ int main(){
     int nthUglyNumberResult = nthuglynumber(n4);
     cout << "The " << n4 << "th ugly number is: " << nthUglyNumberResult << endl;
 
+    cout<<endl;
 
+    // common factors
+    int a1, b1;
+    cout << "Enter two numbers to find common factors: ";
+    cin >> a1 >> b1;
+    int commonFactorsResult = commonFactors(a1, b1);
+    cout << "Number of common factors between " << a1 << " and " << b1 << ": " << commonFactorsResult << endl;
+    cout<<endl;
+
+
+    // duplicate in array
+    vector<int> nums4 = {1, 2, 3, 1};
+    bool hasDuplicate = containsDuplicate(nums4);
+    if (hasDuplicate) {
+        cout << "The array contains duplicates." << endl;
+    } else {
+        cout << "The array does not contain duplicates." << endl;
+    }
+
+    cout<<endl;
+    // duplicate in array using unordered_map
+    vector<int> nums5 = {1, 3, 3};
+    bool hasduplicate1 = containsDuplicate1(nums5);
+    if (hasduplicate1) {
+        cout << "The array contains duplicates in array using unordered_map ." << endl;
+    } else {
+        cout << "The array does not contain duplicates in array using unordered_map ." << endl;
+    }
+    cout<<endl;
     return 0;
 }
