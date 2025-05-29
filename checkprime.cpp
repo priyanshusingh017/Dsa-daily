@@ -4,19 +4,34 @@ using namespace std;
 
 void checkprime(int n){
     bool flag=1;
-    for(int i=2;i<=n;i++){
+    for(int i=2;i<n;i++){
         if(n%i==0){
             flag=0;
             break;
         }
     }
-    if(flag==0){
+    if(flag){
         cout<<"prime"<<endl;
     }else{
         cout<<"not prime"<<endl;
     }
 }
-using namespace std;
+
+// count prime numbers in range 1 to n
+int countprime(int n){
+    int count=0;
+    vector<bool>isprime(n+1, true);
+    isprime[0]=isprime[1]=false;
+    for(int i=2; i<=n; i++){
+        if(isprime[i]){
+            count++;
+            for(int j=2*i; j<=n; j=j+i){
+                isprime[j]=false;
+            }
+        }
+    }
+    return count;
+}
 
 int main(){
 
@@ -24,6 +39,8 @@ int main(){
     cout<<"enter the number"<<endl;
     cin>>n;
     checkprime(n);
+
+    cout<<"Count of prime numbers less than or equal to "<<n<<": "<<countprime(n)<<endl;
 
     return 0;
 }
