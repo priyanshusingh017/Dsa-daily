@@ -1,8 +1,5 @@
 #include<iostream>
 #include<bits/stdc++.h>
-#include<vector>
-#include<algorithm>
-#include<unordered_map>
 
 using namespace std;
 
@@ -392,6 +389,31 @@ bool containsDuplicate1(vector<int>& nums){
     }
     return false;
 }
+
+//two sum II - input array is sorted
+vector<int> twoSum(vector<int>& numbers, int target) {
+    //vector<int>result;
+    int l=0, r=numbers.size()-1;
+    while(l<r){
+        int sum = numbers[l] + numbers[r];
+        if(sum == target){
+            return {l+1 , r+1};
+            /*
+            result.push_back(l+1); result.push_back(r+1); break;
+            */
+        }
+        else if(sum<target){
+            l++;
+        }
+        else{
+            r--;
+        }
+    }
+    return {};
+}
+
+
+
 int main(){
 
     /*
@@ -499,6 +521,7 @@ int main(){
     cout << "\n";
     */
 
+    /*
     
 
     // min and max of an array
@@ -646,6 +669,7 @@ int main(){
     }
 
     cout<<endl;
+
     // duplicate in array using unordered_map
     vector<int> nums5 = {1, 3, 3};
     bool hasduplicate1 = containsDuplicate1(nums5);
@@ -655,5 +679,18 @@ int main(){
         cout << "The array does not contain duplicates in array using unordered_map ." << endl;
     }
     cout<<endl;
+    */
+
+    // two sum II - input array is sorted
+    vector<int> number={2,7,11,15};
+    int target1 = 9;
+    vector<int> twoSumResult = twoSum(number, target1);
+    cout << "Indices of the two numbers that add up to " << target1 << ": ";
+    for (int index : twoSumResult) {
+        cout << index << " ";
+    }
+    cout << endl;
+
+
     return 0;
 }
