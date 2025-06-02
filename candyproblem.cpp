@@ -2,14 +2,19 @@
 #include<bits/stdc++.h>
 
 using namespace std;
+
+// Problem: Candy Distribution -135
 int candy(vector<int>& ratings) {
     int n = ratings.size();
     vector<int> candies(n, 1); 
+
+    // from left to right -> 
     for(int i=1; i<n; i++){
         if(ratings[i] > ratings[i-1]) {
             candies[i] = candies[i-1] + 1;
         }
     }
+    // from right to left ->
     for(int i=n-2; i>=0; i--) {
         if(ratings[i] > ratings[i+1]) {
             candies[i] = max(candies[i], candies[i+1] + 1);
@@ -23,7 +28,13 @@ int candy(vector<int>& ratings) {
     return totalCandies;
 
 }
-
+/*
+// 2929 -> distribution of candies - > sum of candies equal to n and each child can get at most limit candies
+long long distributeCandies(int n, int limit) {
+    vector<int> ways(3 , 0);
+    int count =0;
+}
+    */
 
 
 int main(){
@@ -37,6 +48,8 @@ int main(){
     // The third child has a rating of 2, so they get 2 candies.
     // The total number of candies is 2 + 1 + 2 = 5.
     // The output is 5, which is the minimum number of candies required to satisfy the conditions.
+
+    
 
 
     return 0; 
