@@ -691,6 +691,16 @@ int main(){
     }
     cout << endl;
 
+    // smallest-index-with-digit-sum-equal-to-index
+    vector<int> nums3 = {1,3,2};
+    int smallestIndexResult = smallestIndex(nums3);
+    if (smallestIndexResult != -1) {
+        cout << "Smallest index with digit sum equal to index: " << smallestIndexResult << endl;
+    } else {
+        cout << "No such index found." << endl;
+    }
+    cout<<endl;
+
 
     return 0;
 }
