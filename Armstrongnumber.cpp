@@ -3,7 +3,7 @@
 using namespace std;
 
 void armstrong(int n){
-    
+
     int k=to_string(n).length();
 
     int num=n;

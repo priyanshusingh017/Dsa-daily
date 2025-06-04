@@ -83,8 +83,8 @@ int maxProfit(vector<int>& prices) {
 // min and max of an array
 pair<int , int> minmax(vector<int>& arr){
 
-    int a = INT_MIN;
-    int b = INT_MAX;
+    int a = INT_MIN; // maximum
+    int b = INT_MAX; // minimum
 
     for(int i=0 ; i<arr.size() ; i++){
         if(arr[i]<b){

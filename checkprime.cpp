@@ -3,10 +3,10 @@
 using namespace std;
 
 void checkprime(int n){
-    bool flag=1;
+    bool flag=true;
     for(int i=2;i<n;i++){
         if(n%i==0){
-            flag=0;
+            flag=false;
             break;
         }
     }
