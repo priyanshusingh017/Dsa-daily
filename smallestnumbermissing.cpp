@@ -2,6 +2,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+// missing numer -> like missing 1 no. 
 int missingNumber(vector<int> &arr) {
 
     sort(arr.begin() , arr.end());
@@ -16,6 +17,7 @@ int missingNumber(vector<int> &arr) {
     return j;
 }
 
+// disappernumbers -> in (1,n)
 vector<int> findDisappearedNumbers(vector<int> &arr) {
     int n = arr.size();
     unordered_set<int>seen(arr.begin() , arr.end());
