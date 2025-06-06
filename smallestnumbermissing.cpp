@@ -16,11 +16,33 @@ int missingNumber(vector<int> &arr) {
     return j;
 }
 
+vector<int> findDisappearedNumbers(vector<int> &arr) {
+    int n = arr.size();
+    unordered_set<int>seen(arr.begin() , arr.end());
+    /*for(auto num : arr){
+        seen.insert(num);
+    }*/
+    vector<int>missing;
+    for(int i=1 ; i<=n; i++){
+        if(!seen.count(i)){ // -> seen.find(i)==seen.end()
+            missing.push_back(i);
+        }
+    }
+    return missing;
+
+}
+
 int main(){
 
-    vector<int> arr = {-8, 0, -1, -4, -3};
+    vector<int> arr = {4,3,2,7,8,2,3,1};
     int num = missingNumber(arr);
     cout<<num<<endl;
+
+    vector<int> arr2 = {4,3,2,7,8,2,3,1};
+    vector<int> seen1 = findDisappearedNumbers(arr2);
+    for(auto it : seen1){
+        cout<<it<<" ";
+    }
 
 
 
