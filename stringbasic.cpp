@@ -188,10 +188,16 @@ int main(){
 
     string sr = "geeksforgeeks";
     removeChar(sr, 'g');
-    cout << sr; // sr -> 13 size but if s.resize is not there it print eeksforeeks along with last to ks -> eeksforeeks 
+    cout << sr;
+    cout<<endl;
+     // sr -> 13 size but if s.resize is not there it print eeksforeeks along with last to ks -> eeksforeeks 
     // j count is after remove g -> 11 then it print 11 length of string only . 
 
-    
+    // isdigit -> 
+    cout<<isdigit(3)<<endl;
+
+    // isalpha -> 
+    cout<<isalpha('a')<<endl;
 
 
 
