@@ -16,19 +16,16 @@ int maxDifference(string s) {
 
         if((it.second)&1){
             hasodd=true;
-            if(it.second>oddsum){
-                oddsum = it.second;
-            }
+            oddsum = max(oddsum , it.second);
         }
         else{
             haseven = true;
-            if(it.second<evensum){
-                evensum = it.second;
-            }
+            evensum = min(evensum , it.second);
         }
     }
+    // edge case if no accurance of odd frequency 
     if(!hasodd){
-        oddsum = 0 ;// edge case if no accurance of odd frequency 
+        oddsum = 0 ; 
     }
     if(!haseven){
         evensum=0;
@@ -53,6 +50,7 @@ int maxdifference(string s){
     }
     return oddsum - evensum ;
 }
+// add this approach too and write whole thing from ititution to complexity for both approach 
 
 int main(){
 
