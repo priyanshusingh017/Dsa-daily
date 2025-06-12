@@ -3,7 +3,7 @@
 using namespace std;
 
 // maximum difference btw adjacent elements in circular array . 
-int maxAdjacentDistance(vector<int>& nums) { // O(n) solution
+int maxAdjacentDistance(vector<int>& nums) { // O(n) 
     int n=nums.size();
     int maxdifference =0;
     for(int i=0; i<n; i++){
