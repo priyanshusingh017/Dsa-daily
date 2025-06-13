@@ -4,7 +4,9 @@ using namespace std;
 
 
 // Function to add two binary strings
-
+string addBinary(string a, string b){
+    
+}
 
 int main(){
 
