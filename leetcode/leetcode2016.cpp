@@ -3,7 +3,7 @@
 using namespace std;
 
 int maximumDifference(vector<int>& nums) { // complexity -> O(n) , space -> O(1)
-    if(nums.size() < 2) return -1; // If there are less than 2 elements, return -1
+
     int n = nums.size();
     int maxdiff = -1;
     int i = INT_MAX;
@@ -19,9 +19,24 @@ int maximumDifference(vector<int>& nums) { // complexity -> O(n) , space -> O(1)
     return maxdiff;
 }
 
+// Alternative implementation of maximumDifference
+
+int maximumDifferenceAlt(vector<int>& nums) {
+    int maxDifference = -1;
+    int minElement = nums[0];
+    for (int j = 1; j < nums.size(); j++) {
+        if (nums[j] > minElement) {
+            maxDifference = max(maxDifference, nums[j] - minElement);
+        } else {
+            minElement = nums[j];
+        }
+    }
+    return maxDifference;
+}
+
 
 int main(){
     vector<int>nums = {7,1,5,4};
-    cout << maximumDifference(nums) << endl; // Output: 4
+    cout << maximumDifference(nums) << endl; // Output: 4-> (5-1)
     return 0;
 }
