@@ -11,7 +11,8 @@ int maximumDifference(vector<int>& nums) { // complexity -> O(n) , space -> O(1)
         if(nums[j]<i){
             i = nums[j];
         }
-        else{
+        else if (nums[j] > i){
+            // If current number is greater than the minimum seen so far
             maxdiff = max(maxdiff , nums[j]-i);
         }
     }
