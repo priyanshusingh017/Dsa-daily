@@ -26,6 +26,6 @@ int maxDistance(vector<int>& colors) {
 
 int main(){
     vector<int> nums = {1,1,1,6,1,1,1};
-    cout << maxDistance(nums) << endl; // Output: 4-> (5-1)
+    cout << maxDistance(nums) << endl; // Output: 3 (as index 0 and 3 are different colors) => 3 
     return 0; 
 }
