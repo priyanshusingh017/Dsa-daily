@@ -2,7 +2,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-int longestSubarray(vector<int>& nums, int limit) {
+int longestSubarray(vector<int>& nums, int limit) { // baki hai 
     int l =0 , r =0 , maxlength = 0 ;
     while(r<nums.size()){
         int num = abs(nums[l]-nums[r]);
