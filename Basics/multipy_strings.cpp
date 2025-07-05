@@ -18,7 +18,7 @@ string multiply(string num1, string num2) {
     }
     return "0";
 }
-// binary too revise
+
 
 int main(){
 
