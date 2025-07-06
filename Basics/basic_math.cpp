@@ -132,6 +132,50 @@ vector<int> arraypatternprint(vector<int>& nums){
     return res;
 }
 
+/*
+ Problem Statement:
+ - Sum all numbers removed in alternate steps from 1 to N until one remains.
+
+ Example (N=5):
+
+ 1.Remove [1,3,5] → Sum = 9
+
+ 2.Remove [2] → Sum = 11 (final)
+
+ 3.Remaining: [4] (ignored)
+
+ Code Purpose:
+ - Computes the sum of all alternately removed numbers.
+*/
+int alternate_Sum_print(int N){
+    vector<int>nums;
+    for(int i=1; i<=N; i++){
+        nums.push_back(i);
+    }
+    
+    int sum =0;
+    while(nums.size()>1){
+        vector<int>selected;
+        vector<int>remaining;
+        for(int i=0; i<nums.size(); i++){
+            if(i%2==0){
+                selected.push_back(nums[i]);
+            }
+            else{
+                remaining.push_back(nums[i]);
+            }
+        }
+        for(auto it : selected){
+            sum += it;
+        }
+        if(remaining.empty()){
+            break;
+        }
+        nums=remaining;
+    }
+    return sum;
+}
+
 
 int main(){
 
@@ -153,6 +197,9 @@ int main(){
     for(auto i : res){
         cout<<i<<" ";
     }
+    cout<<endl;
+
+    cout<<alternate_Sum_print(5)<<endl;
 
 
     return 0;
