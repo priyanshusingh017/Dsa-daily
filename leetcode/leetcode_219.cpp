@@ -19,7 +19,9 @@ bool containsNearbyDuplicate(vector<int>& nums, int k) {
     unordered_map<int , int>numindex;
     for(int i=0; i<n; i++){
         if(numindex.find(nums[i]) != numindex.end()){
+            // checks the first condition wheather duplicate or not till the map end. -> nums[i]==nums[j]
             if(abs(i - numindex[nums[i]]) <=k ){
+                // checks the second condition -> abs(i-j)<=k 
                 return true;
             }
         }
