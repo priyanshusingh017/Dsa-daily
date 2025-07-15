@@ -1,4 +1,5 @@
 #include<iostream>
+#include<bits/stdc++.h>
 #include<vector>
 using namespace std;
 
@@ -22,7 +23,7 @@ void solve(vector<int>nums , vector<vector<int>> & ans , int index){
 
 }
 vector<vector<int>> permute(vector<int>& nums){
-    vector<vector<int>>ans;
+    vector<vector<int>>ans; 
     int index =0;
     solve(nums , ans , index);
     return ans;
@@ -31,7 +32,7 @@ vector<vector<int>> permute(vector<int>& nums){
 
 int main(){
 
-    vector<int>nums = {1 , 2 ,3};  // 3! = 6 number 
+    vector<int>nums = {1,1,5};  // 3! = 6 number 
     vector<vector<int>>res = permute(nums);
     for(auto i: res){
         cout<<"[";
