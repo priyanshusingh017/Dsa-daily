@@ -56,6 +56,35 @@ void insertionAtposition(Node* tail , Node * head ,int position , int d){
     temp -> next = nodepostion;
 }
 
+void deleteNode(int position , Node*&head){
+
+    if(position==1){
+        Node * temp = head;
+        head = head->next;
+        //memory free kar di
+        temp -> next = nullptr;
+        delete temp;
+    }
+    else{
+
+        //deleting any middle node and last node ->
+
+        Node* curr = head;
+        Node* prev = nullptr;
+
+        int cnt =1;
+        while(cnt < position){
+            prev = curr;
+            curr = curr -> next;
+            cnt++;
+        }
+
+        prev->next = curr->next;
+        curr->next = nullptr;
+        delete curr;
+    }
+}
+
 void print(Node* & head ){
 
     Node*temp = head;
@@ -116,6 +145,12 @@ int main(){
 
     insertionAtposition(tail , head , 4 , 22);
     print(head);
+
+
+    deleteNode(3,head);
+    print(head);
+
+
 
 
     return 0;
