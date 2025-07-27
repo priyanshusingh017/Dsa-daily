@@ -74,6 +74,36 @@ bool iscircularList(Node*head){
     return false;
 }
 
+bool isCircular1 (Node* head){  // [1,2,3,5,8,6,5] -> here 6 connect to 5 not head that why its false;
+    // Write your code here.
+    if (head == nullptr )
+    {
+        return true;
+    }
+    if(head->next == nullptr) return false;
+
+    Node *slow = head;
+    Node *fast = head;
+    while (fast != nullptr && fast->next != nullptr)
+    {
+        slow = slow->next;
+        fast = fast->next->next;
+
+        if (slow == fast) // cyclic
+        {
+            Node*temp = slow;
+            do{
+                if(temp == head){
+                    return true; // circluar 
+                }
+                temp = temp->next;
+            }while(temp!=slow);
+            return false; // not circular but cyclic 
+        }
+    }
+    return false;
+}
+
 int main()
 {
 
