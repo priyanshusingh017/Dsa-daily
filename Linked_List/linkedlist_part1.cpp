@@ -1,81 +1,92 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 
-class Node{
-    public:
+class Node
+{
+public:
     int data;
-    Node * next;
+    Node *next;
 
-    //Node(int val) : data(val) , next(nullptr) {}
+    // Node(int val) : data(val) , next(nullptr) {}
 
-    //constructor 
-    Node(int data){
-        this -> data =  data;
-        this -> next = NULL;
+    // constructor
+    Node(int data)
+    {
+        this->data = data;
+        this->next = NULL;
     }
 };
 
+void insertionathead(Node *&head, int d)
+{
 
-void insertionathead(Node* & head , int d){
-
-    //new node create
-    Node * temp = new Node(d);
-    temp -> next = head ;
+    // new node create
+    Node *temp = new Node(d);
+    temp->next = head;
     head = temp;
 }
 
-void insertionattail(Node* & tail , int d){
+void insertionattail(Node *&tail, int d)
+{
 
-    Node* temp = new Node(d);
-    tail -> next = temp;
+    Node *temp = new Node(d);
+    tail->next = temp;
     tail = temp;
 }
 
-void insertionAtposition(Node* tail , Node * head ,int position , int d){
+void insertionAtposition(Node *tail, Node *head, int position, int d)
+{
 
-    // insert at start -> 
-    if(position == 1){
-        insertionathead(head , d);
-        return ;
+    // insert at start ->
+    if (position == 1)
+    {
+        insertionathead(head, d);
+        return;
     }
-    Node* temp = head;
+    Node *temp = head;
     int cnt = 1;
-    while(cnt<position-1){
-        temp = temp ->next;
+    while (cnt < position - 1)
+    {
+        temp = temp->next;
         cnt++;
     }
 
-    if(temp->next == NULL){
-        insertionattail (tail , d);
-        return ;
+    if (temp->next == NULL)
+    {
+        insertionattail(tail, d);
+        return;
     }
 
-    //creating for d
-    Node * nodepostion = new Node(d);
-    nodepostion -> next = temp -> next;
-    temp -> next = nodepostion;
+    // creating for d
+    Node *nodepostion = new Node(d);
+    nodepostion->next = temp->next;
+    temp->next = nodepostion;
 }
 
-void deleteNode(int position , Node*&head){
+void deleteNode(int position, Node *&head)
+{
 
-    if(position==1){
-        Node * temp = head;
+    if (position == 1)
+    {
+        Node *temp = head;
         head = head->next;
-        //memory free kar di
-        temp -> next = nullptr;
+        // memory free kar di
+        temp->next = nullptr;
         delete temp;
     }
-    else{
+    else
+    {
 
-        //deleting any middle node and last node ->
+        // deleting any middle node and last node ->
 
-        Node* curr = head;
-        Node* prev = nullptr;
+        Node *curr = head;
+        Node *prev = nullptr;
 
-        int cnt =1;
-        while(cnt < position){
+        int cnt = 1;
+        while (cnt < position)
+        {
             prev = curr;
-            curr = curr -> next;
+            curr = curr->next;
             cnt++;
         }
 
@@ -85,18 +96,51 @@ void deleteNode(int position , Node*&head){
     }
 }
 
-void print(Node* & head ){
+void print(Node *&head)
+{
 
-    Node*temp = head;
+    Node *temp = head;
 
-    while(temp){
-        cout<<temp->data<<" ";
-        temp = temp -> next;
+    while (temp)
+    {
+        cout << temp->data << " ";
+        temp = temp->next;
     }
-    cout<<endl;
+    cout << endl;
 }
 
-int main(){
+bool floydsdetectloop(Node *head)
+{
+
+    // base case
+    if (head == nullptr)
+    {
+        return false;
+    }
+
+    Node *slow = head;
+    Node *fast = head;
+
+    while (slow != nullptr && fast != nullptr)
+    {
+
+        fast = fast->next;
+        if (fast != nullptr)
+        {
+            fast = fast->next;
+        }
+        slow = slow->next;
+
+        if (slow == fast)
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
+int main()
+{
 
     /*
     //creating linklist
@@ -104,7 +148,7 @@ int main(){
     Node* node2 = new Node(20);
     Node* node3 = new Node(30);
 
-    //linked to next pointer 
+    //linked to next pointer
     node1 -> next = node3;
     node3 -> next = node2;
 
@@ -116,14 +160,13 @@ int main(){
     }
     */
 
-    Node*node1 = new Node(10);
+    Node *node1 = new Node(10);
 
-    Node * head = node1;
-    Node * tail = node1;
+    Node *head = node1;
+    Node *tail = node1;
     print(head);
 
-
-    // inserrtion At Head -> 
+    // inserrtion At Head ->
 
     /*
     insertionathead(head , 12);
@@ -134,24 +177,30 @@ int main(){
     */
 
     // insertion At tail ->
-    
-    
-    insertionattail(tail , 12);
+
+    insertionattail(tail, 12);
     print(head);
 
-    insertionattail(tail , 15);
-    print(head);
-    
-
-    insertionAtposition(tail , head , 4 , 22);
+    insertionattail(tail, 15);
     print(head);
 
+    insertionAtposition(tail, head, 4, 22);
+    print(head);
 
+    /*
     deleteNode(3,head);
     print(head);
 
+    */
 
-
+    if (floydsdetectloop(head))
+    {
+        cout << "Y" << endl;
+    }
+    else
+    {
+        cout << "N" << endl;
+    }
 
     return 0;
 }
