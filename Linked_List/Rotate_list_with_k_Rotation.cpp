@@ -32,6 +32,7 @@ void insertionattail(Node *&tail, int d)
     tail = temp;
 }
 
+// K-Rotation using vector  -> 
 void krotate(vector<int> &nums, int k)
 {
 
