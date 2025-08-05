@@ -29,7 +29,7 @@ int main(){
     int n = 5; 
     cout<<"before "<<n<<endl;
 
-    update1(n); 
+    update(5); 
     // refrence variable show or address same the memmory address of the variable memory address.
 
     cout<<"after "<<n<<endl;
