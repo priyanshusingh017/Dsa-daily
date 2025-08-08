@@ -33,7 +33,7 @@ int main(){
     leftrotate(nums , 2);
     cout<< "After left rotation : ";
     for(auto i : nums){
-        cout<< i << " ";
+        cout<< i << " "; // 2,11,2,43,1,1,7,5
     }cout<<endl;
 
     vector<int>arr={1,2,3,4,5};
@@ -41,7 +41,7 @@ int main(){
     rightrotate(arr , 2);
     cout<<"After right rotation: ";
     for(auto i : arr){
-        cout<< i <<" ";
+        cout<< i <<" "; // 4,5,1,2,3
     }
     
 
