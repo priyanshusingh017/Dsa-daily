@@ -9,7 +9,7 @@ class Solution
 public:
     queue<int> reverseFirstK(queue<int> q, int k)
     {
-
+        // base case -> 
         if (k <= 0 || k > q.size())
         {
             return q;
