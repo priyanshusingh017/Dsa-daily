@@ -7,7 +7,7 @@ int duplicate(vector<string>&name , vector<int>prices , vector<int>weight){
     int ans=0;
     unordered_set<string>ch;
     for(int i=0; i<name.size(); i++){
-        string id = name[i]+to_string(prices[i])+to_string(weight[i]);
+        string id = name[i]+"_"+to_string(prices[i])+"_"+to_string(weight[i]);
         if(ch.count(id)){
             ans++;
         }
