@@ -2,18 +2,18 @@
 using namespace std;
 
 /*
-Given an array of integers and a window size k, for every contiguous subarray (window) of size k, 
-count the number of distinct elements in that window.
+ Given an array of integers and a window size k, for every contiguous subarray (window) of size k, 
+ count the number of distinct elements in that window.
 
-Example:
-Input: arr = [1, 2, 1, 3, 4, 2, 3], k = 4
-Output: 3 4 4 3
+ Example:
+ Input: arr = [1, 2, 1, 3, 4, 2, 3], k = 4
+ Output: 3 4 4 3
 
-Explanation:
-- Window [1, 2, 1, 3] has 3 distinct elements: 1, 2, 3
-- Window [2, 1, 3, 4] has 4 distinct elements: 1, 2, 3, 4
-- Window [1, 3, 4, 2] has 4 distinct elements: 1, 2, 3, 4
-- Window [3, 4, 2, 3] has 3 distinct elements: 2, 3, 4
+ Explanation:
+ - Window [1, 2, 1, 3] has 3 distinct elements: 1, 2, 3
+ - Window [2, 1, 3, 4] has 4 distinct elements: 1, 2, 3, 4
+ - Window [1, 3, 4, 2] has 4 distinct elements: 1, 2, 3, 4
+ - Window [3, 4, 2, 3] has 3 distinct elements: 2, 3, 4
 */
 
 vector<int> countDistinct(vector<int> &arr, int k)
