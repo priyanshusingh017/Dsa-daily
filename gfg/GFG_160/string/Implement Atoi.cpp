@@ -18,8 +18,9 @@ int myAtoi(string &s)
         if (s[i] == '-')
         {
             sign = -1;
-            i++;
+            
         }
+        i++;
     }
 
     // digit conversion
