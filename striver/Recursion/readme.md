@@ -1,15 +1,24 @@
-# Recursion
+# Recursion – Classic Algorithms in C++
 
-This folder contains C++ implementations of sorting algorithms using recursion, as part of the Striver DSA series.
+This folder demonstrates how recursion can be used to solve classic problems and implement fundamental algorithms, as part of the Striver DSA series. Each example is designed to build your understanding of recursive thinking and its application in algorithm design.
 
-## 📚 Included Programs
+## 📂 Contents
 
-- [Bubble Sort Using Recursion](./bubblesort_using_recursion.cpp):  
-  Implements the bubble sort algorithm recursively, demonstrating how sorting logic can be applied without explicit loops.
+- [Bubble Sort Using Recursion](./bubblesort_using_recursion.cpp)  
+  Recursively sorts the array by repeatedly moving the largest unsorted element to the end.
 
-- [Insertion Sort Using Recursion](./insertionsort_using_recursion.cpp):  
-  Implements the insertion sort algorithm recursively, showing how elements can be inserted in order using recursive calls.
+- [Insertion Sort Using Recursion](./insertionsort_using_recursion.cpp)  
+  Recursively sorts the array by inserting each element into its correct position in the sorted part.
+
+- [Selection Sort Using Recursion](./selectionsort_using_recursion.cpp)  
+  Recursively finds the minimum element in the unsorted part and moves it to the correct position.
+
+- [Fibonacci Series Using Recursion](./Fibonnaci_series.cpp)  
+  Generates Fibonacci numbers using a simple recursive approach.
+
+- [Power Function Using Recursion](./powerfunction_using_recursion.cpp)  
+  Efficiently computes $x^n$ (x raised to the power n) using recursive exponentiation by squaring, handling all edge cases.
 
 ---
 
-Each program is written with clear code and comments to help you understand the recursive approach to classic sorting algorithms. Explore these files to deepen your understanding of recursion in DSA!
+Each program is written with clear code and comments to help you master recursion in both sorting and mathematical algorithms. Explore these files to deepen your understanding of recursion and its power in DSA !!
