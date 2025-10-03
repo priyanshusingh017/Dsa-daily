@@ -1,6 +1,6 @@
 # Recursion – Classic Algorithms and Problems in C++
 
-This folder demonstrates how recursion can be used to solve classic problems and implement fundamental algorithms, as part of the Striver DSA series. Each example is designed to build your understanding of recursive thinking and its application in algorithm design.
+This folder demonstrates how recursion can be used to solve classic problems and implement fundamental algorithms. Each example is designed to build your understanding of recursive thinking and its application in algorithm design.
 
 ## 📂 Contents
 
