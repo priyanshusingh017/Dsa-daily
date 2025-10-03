@@ -22,6 +22,9 @@ This folder demonstrates how recursion can be used to solve classic problems and
 - [Count Good Numbers](./count%20good%20number.cpp)  
   Solves the "Count Good Numbers" problem using recursion and modular exponentiation, demonstrating how to handle large exponents and modulo operations.
 
+- [String to Integer (Atoi) Using Recursion](./StringtoInteger(atoi).cpp)  
+  Converts a string to an integer using a recursive approach, mimicking the behavior of the standard `atoi` function.
+
 ---
 
 Each program is written with clear code and comments to help you master recursion in both sorting and mathematical algorithms. Explore these files to deepen your understanding of recursion and its power in DSA!
