@@ -1,4 +1,4 @@
-# Recursion – Classic Algorithms in C++
+# Recursion – Classic Algorithms and Problems in C++
 
 This folder demonstrates how recursion can be used to solve classic problems and implement fundamental algorithms, as part of the Striver DSA series. Each example is designed to build your understanding of recursive thinking and its application in algorithm design.
 
@@ -19,6 +19,9 @@ This folder demonstrates how recursion can be used to solve classic problems and
 - [Power Function Using Recursion](./powerfunction_using_recursion.cpp)  
   Efficiently computes $x^n$ (x raised to the power n) using recursive exponentiation by squaring, handling all edge cases.
 
+- [Count Good Numbers](./count%20good%20number.cpp)  
+  Solves the "Count Good Numbers" problem using recursion and modular exponentiation, demonstrating how to handle large exponents and modulo operations.
+
 ---
 
-Each program is written with clear code and comments to help you master recursion in both sorting and mathematical algorithms. Explore these files to deepen your understanding of recursion and its power in DSA !!
+Each program is written with clear code and comments to help you master recursion in both sorting and mathematical algorithms. Explore these files to deepen your understanding of recursion and its power in DSA!
