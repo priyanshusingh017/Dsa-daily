@@ -1,6 +1,6 @@
 # Learn the Basics
 
-This folder contains fundamental C++ programs and explanations to help you build a strong foundation in Data Structures and Algorithms (DSA).
+This folder contains fundamental C++ programs and explanations to help you build a strong foundation in Data Structures and Algorithms (DSA). Each topic is covered with clear code and comments for easy understanding.
 
 ## 📚 Topics Covered
 
@@ -23,6 +23,11 @@ This folder contains fundamental C++ programs and explanations to help you build
 - [Valid Palindrome](./Valid%20Palindrome.cpp): Validate if a string is a palindrome, possibly with constraints.
 - [Reverse String](./reverse.cpp): Reverse a string.
 
+### Patterns
+The `pattern/` subfolder contains C++ programs for various pattern printing problems, such as:
+- [p1.cpp](./pattern/p1.cpp), [p2.cpp](./pattern/p2.cpp), ..., [p22.cpp](./pattern/p22.cpp):  
+  Classic pattern problems to build logic and strengthen your understanding of loops and nested structures.
+
 ---
 
-Each program is implemented with clear code and comments for easy understanding. Explore these files to strengthen your grasp of basic programming and DSA concepts!
+Explore these files and folders to strengthen your grasp of basic programming, pattern logic, and DSA concepts!
