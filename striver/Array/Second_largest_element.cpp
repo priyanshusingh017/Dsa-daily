@@ -4,6 +4,7 @@ using namespace std;
 
 int SecondSmallestElement(vector<int>&nums){
 
+    /*
     // Using Priority-Queue -
     priority_queue<int>maxheap;
 
@@ -21,6 +22,23 @@ int SecondSmallestElement(vector<int>&nums){
     }
 
     return maxheap.top();
+
+    */
+
+    int smallest = INT_MAX , secondsmallest = INT_MAX;
+
+    for(auto num : nums){
+
+        if(num<smallest ){
+            secondsmallest = smallest ;
+            smallest=num;
+        }
+        else if (num < secondsmallest && secondsmallest != smallest ){
+            secondsmallest = num;
+        }
+    }
+
+    return secondsmallest;
 }
 
 int secondLargest(vector<int>nums){
